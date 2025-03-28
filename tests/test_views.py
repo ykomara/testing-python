@@ -16,3 +16,7 @@ def test_print_menu(capsys):
     assert captured.out == expected_out
 
 
+def test_get_user_input(monkeypatch):
+    message ="Bonjour"
+    monkeypatch.setattr('builtins.input', lambda _: message)
+    assert View.get_user_input(message) == 'Bonjour'
